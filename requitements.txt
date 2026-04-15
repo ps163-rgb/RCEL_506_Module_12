@@ -4,3 +4,4 @@ matplotlib
 seaborn
 folium
 request
+streamlit_folium
