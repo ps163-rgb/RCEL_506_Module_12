@@ -24,7 +24,11 @@ df = pd.merge(df1, df2, on='station_id')
 df.head()
 # Row 1: Title and Caption
 st.title("EcoBici Mexico City Map")
-st.caption("By [Your Name]")
+st.caption("By [Pavan Sastry]")
+
+# Sidebar: Controls
+st.sidebar.header("Map Controls")
+selected_station = st.sidebar.selectbox("Select a Station:", df['station_id'].unique())
 
 # Row 2: Columns for Dropdown and Map
 col1, col2 = st.columns([1, 3])
