@@ -29,6 +29,16 @@ st.caption("By [Pavan Sastry]")
 col1, col2 = st.columns([1, 3])
 
 with col1:
+            # --- NEW SLIDER CODE ---
+    # Find the maximum number of bikes available across all stations to set the slider's limit
+    max_bikes = int(df['num_bikes_available'].max())
+    
+    # Create the slider
+    min_bikes = st.slider("Minimum Bikes Available:", min_value=0, max_value=max_bikes, value=0)
+    
+    # Filter the dataframe based on the slider value
+    filtered_df = df[df['num_bikes_available'] >= min_bikes]
+    # -----------------------
     # Dropdown menu assuming 'df' is already loaded in your script
     selected_station = st.selectbox("Select a Station:", df['station_id'].unique())
 
