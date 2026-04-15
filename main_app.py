@@ -26,6 +26,18 @@ df = pd.merge(df1, df2, on='station_id')
 st.title("EcoBici Mexico City Map")
 st.caption("By Pavan Sastry")
 
+st.sidebar.header("Map Controls")
+
+# 1. Slider Filter
+max_bikes = int(df['num_bikes_available'].max())
+min_bikes = st.sidebar.slider("Minimum Bikes Available:", min_value=0, max_value=max_bikes, value=0)
+
+# Filter the dataframe based on the slider value
+filtered_df = df[df['num_bikes_available'] >= min_bikes]
+
+# 2. Dropdown Menu (Uses the filtered dataframe)
+selected_station = st.sidebar.selectbox("Select a Station:", filtered_df['station_id'].unique())
+
 # Row 2: Columns for Dropdown and Map
 col1, col2 = st.columns([1, 3])
 
