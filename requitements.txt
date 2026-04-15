@@ -3,5 +3,6 @@ numpy
 matplotlib
 seaborn
 folium
-request
-streamlit_folium
+requests
+streamlit-folium
+streamlit
